@@ -1,0 +1,53 @@
+<div class="main">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <!-- Search Input -->
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search feedback..."
+        [(ngModel)]="query"
+        (keyup)="searchFeedbacks()"
+      />
+  
+      <!-- Action Buttons -->
+      <div>
+        <button class="btn search-btn" (click)="searchFeedbacks()">Search</button>
+        
+      </div>
+    </div>
+  
+    <!-- Feedback List -->
+    <div *ngIf="feedbacks.length > 0; else noFeedback" class="inventory-container">
+      <div *ngFor="let feedback of feedbacks" class="details-section">
+        <!-- Feedback Details -->
+        <div class="detail-row">
+          <div class="label">Name:</div>
+          <div class="value">{{ feedback.name }}</div>
+        </div>
+        <div class="detail-row">
+          <div class="label">Email:</div>
+          <div class="value">{{ feedback.email }}</div>
+        </div>
+        <div class="detail-row">
+          <div class="label">Message:</div>
+          <div class="value">{{ feedback.message }}</div>
+        </div>
+        <div class="detail-row">
+          <div class="label">Date:</div>
+          <div class="value">{{ feedback.createdAt | date: 'short' }}</div>
+        </div>
+  
+        <!-- Actions -->
+        <div class="actions">
+          <button class="btn delete-btn" (click)="deleteFeedback(feedback.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- No Feedback Message -->
+    <ng-template #noFeedback>
+      <div class="no-results">No feedback found.</div>
+    </ng-template>
+  </div>
+  

@@ -1,0 +1,155 @@
+/* Main container */
+.main {
+    margin: 10px;
+    padding: 30px;
+    width: 1230px;
+    height: calc(120vh - 20px); /* Adjust height to fit the viewport minus margins */
+    background-color: white;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling if needed */
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
+
+/* Top bar for search and action buttons */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Search input */
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+
+/* Search and Add buttons */
+.btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-btn {
+    background-color: #008cba;
+    color: white;
+}
+
+.add-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Inventory container */
+.supplier-container {
+    display: flex;
+    background-color: #202020;
+    width: 1150px;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 10px;
+}
+
+/* Details section (for component name, quantity, etc.) */
+.details-section {
+    flex: 1;
+}
+
+/* Detail row for each field */
+.detail-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+/* Labels and values */
+.label {
+    font-weight: bold;
+    width: 150px;
+    color: #ccc;
+}
+
+.value {
+    flex: 1;
+    color: #fff;
+}
+
+/* Edit input fields */
+.edit-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+/* Actions (Edit, Save, Cancel, Delete) */
+.actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.actions .btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.edit-btn {
+    background-color: #ffa500;
+    color: white;
+}
+
+.save-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Message when no inventory items are found */
+.inventory-container .no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .main {
+        width: 100%;
+    }
+
+    .inventory-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .details-section {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+}

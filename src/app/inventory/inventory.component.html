@@ -1,0 +1,115 @@
+<div class="main">
+    <div class="top-bar">
+      <div class="top-bar-1">
+        <input
+          type="text"
+          [(ngModel)]="searchQuery"
+          placeholder="Search inventory"
+          class="search-input"
+        />
+        <button (click)="searchInventories()" class="btn search-btn">Search</button>
+      </div>
+      <button (click)="addNewInventory()" class="btn add-btn">Add New Inventory</button>
+    </div>
+    <div *ngIf="inventories.length === 0">No Results Found</div>
+    <div *ngFor="let inventory of inventories" class="inventory-container">
+      <div class="details-section">
+        <!-- Component Name -->
+        <div class="detail-row">
+          <span class="label">Component Name:</span>
+          <span class="value" *ngIf="!isEditing(inventory)">
+            {{ inventory.componentName || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(inventory)"
+            [(ngModel)]="editingInventory.componentName"
+            class="edit-input"
+          />
+        </div>
+        <!-- Quantity -->
+        <div class="detail-row">
+          <span class="label">Quantity:</span>
+          <span class="value" *ngIf="!isEditing(inventory)">
+            {{ inventory.quantity || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(inventory)"
+            [(ngModel)]="editingInventory.quantity"
+            class="edit-input"
+            type="number"
+          />
+        </div>
+        <!-- Supplier ID -->
+        <div class="detail-row">
+          <span class="label">Supplier ID:</span>
+          <span class="value" *ngIf="!isEditing(inventory)">
+            {{ inventory.supplierId || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(inventory)"
+            [(ngModel)]="editingInventory.supplierId"
+            class="edit-input"
+            type="number"
+          />
+        </div>
+        <!-- Stock Level -->
+        <div class="detail-row">
+          <span class="label">Stock Level:</span>
+          <span class="value" *ngIf="!isEditing(inventory)">
+            {{ inventory.stockLevel || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(inventory)"
+            [(ngModel)]="editingInventory.stockLevel"
+            class="edit-input"
+            type="number"
+          />
+        </div>
+        <!-- Reorder Threshold -->
+        <div class="detail-row">
+          <span class="label">Reorder Threshold:</span>
+          <span class="value" *ngIf="!isEditing(inventory)">
+            {{ inventory.reorderThreshold || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(inventory)"
+            [(ngModel)]="editingInventory.reorderThreshold"
+            class="edit-input"
+            type="number"
+          />
+        </div>
+      </div>
+  
+      <div class="actions">
+        <button
+          *ngIf="!isEditing(inventory)"
+          (click)="enableEdit(inventory)"
+          class="btn edit-btn"
+        >
+          Edit
+        </button>
+        <button
+          *ngIf="isEditing(inventory)"
+          (click)="saveInventory()"
+          class="btn save-btn"
+        >
+          Save
+        </button>
+        <button
+          *ngIf="isEditing(inventory)"
+          (click)="cancelEdit()"
+          class="btn cancel-btn"
+        >
+          Cancel
+        </button>
+        <button
+          *ngIf="!isEditing(inventory)"
+          (click)="deleteInventory(inventory.inventoryId)"
+          class="btn delete-btn"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  

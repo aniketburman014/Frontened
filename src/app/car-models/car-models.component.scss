@@ -1,0 +1,196 @@
+.main {
+  margin: 10px;
+  padding: 30px;
+  width: 1230px;
+  height: calc(120vh - 20px); /* Adjust height to fit the viewport minus margins */
+  background-color: white;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Disable horizontal scrolling if needed */
+  border: 1px solid #ccc; /* Optional: to visually distinguish the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .search-btn {
+    background-color: #008cba;
+    color: white;
+  }
+  
+  .car-model-container {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .image-section {
+    margin-right: 20px;
+  }
+  
+  .car-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .details-section {
+    flex: 1;
+  }
+  
+  .detail-row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    font-weight: bold;
+    width: 150px;
+  }
+  
+  .value,
+  .edit-input {
+    flex: 1;
+  }
+  
+  .edit-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .actions {
+    margin-top: 20px;
+  }
+  
+  .edit-btn {
+    background-color: #ffa500;
+    color: white;
+  }
+  
+  .save-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+.car-model-container {
+    display: flex;
+    background-color: #202020;
+    width: 1150px;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 10px;
+  
+    .image-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 20px;
+  
+      .car-image {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 8px;
+        border: 2px solid #444;
+      }
+    }
+  
+    .details-section {
+      flex: 2;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+  
+      .detail-row {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        background: #333;
+        border-radius: 8px;
+        border: 1px solid #444;
+  
+        .label {
+          font-weight: bold;
+          color: #ccc;
+          margin-bottom: 5px;
+        }
+  
+        .value {
+          font-size: 1rem;
+          color: #fff;
+        }
+      }
+    }
+  }
+  
+  .actions {
+    margin-top: 20px;
+    text-align: center;
+  
+    .btn {
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+  
+      &.edit-btn {
+        background-color: #007bff;
+        color: white;
+      }
+  
+      &.save-btn {
+        background-color: #28a745;
+        color: white;
+      }
+  
+      &.cancel-btn {
+        background-color: #dc3545;
+        color: white;
+      }
+  
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+  

@@ -1,0 +1,115 @@
+<div class="main">
+<div class="top-bar">
+  <div class="top-bar-1">
+  <input
+    type="text"
+    [(ngModel)]="searchQuery"
+    placeholder="Search car models"
+    class="search-input"
+  />
+
+  <button (click)="searchCarModels()" class="btn search-btn">Search</button>
+</div>
+  <button (click)="addNewModel()" class="btn add-btn">Add New Model</button>
+</div>
+<div *ngIf="carModels.length===0">No Result Found</div>
+<div *ngFor="let carModel of carModels" class="car-model-container">
+  <div class="image-section">
+    <img
+      src="https://via.placeholder.com/200x200"
+      alt="Car Model"
+      class="car-image"
+    />
+  </div>
+  <div class="details-section">
+    <!-- Model Name -->
+    <div class="detail-row">
+      <span class="label">Model Name:</span>
+      <span class="value" *ngIf="!isEditing(carModel)">
+        {{ carModel.modelName || 'N/A' }}
+      </span>
+      <input
+        *ngIf="isEditing(carModel)"
+        [(ngModel)]="editingCarModel.modelName"
+        class="edit-input"
+      />
+    </div>
+    <!-- Engine Type -->
+    <div class="detail-row">
+      <span class="label">Engine Type:</span>
+      <span class="value" *ngIf="!isEditing(carModel)">
+        {{ carModel.engineType || 'N/A' }}
+      </span>
+      <input
+        *ngIf="isEditing(carModel)"
+        [(ngModel)]="editingCarModel.engineType"
+        class="edit-input"
+      />
+    </div>
+    <!-- Fuel Efficiency -->
+    <div class="detail-row">
+      <span class="label">Fuel Efficiency:</span>
+      <span class="value" *ngIf="!isEditing(carModel)">
+        {{ carModel.fuelEfficiency || 'N/A' }} km/l
+      </span>
+      <input
+        *ngIf="isEditing(carModel)"
+        [(ngModel)]="editingCarModel.fuelEfficiency"
+        class="edit-input"
+      />
+    </div>
+    <!-- Design Features -->
+    <div class="detail-row">
+      <span class="label">Design Features:</span>
+      <span class="value" *ngIf="!isEditing(carModel)">
+        {{ carModel.designFeatures || 'N/A' }}
+      </span>
+      <input
+        *ngIf="isEditing(carModel)"
+        [(ngModel)]="editingCarModel.designFeatures"
+        class="edit-input"
+      />
+    </div>
+    <!-- Production Cost -->
+    <div class="detail-row">
+      <span class="label">Production Cost:</span>
+      <span class="value" *ngIf="!isEditing(carModel)">
+        ${{ carModel.productionCost || 'N/A' }}
+      </span>
+      <input
+        *ngIf="isEditing(carModel)"
+        [(ngModel)]="editingCarModel.productionCost"
+        class="edit-input"
+        type="number"
+      />
+    </div>
+    <!-- Status -->
+    <div class="detail-row">
+      <span class="label">Status:</span>
+      <span class="value" *ngIf="!isEditing(carModel)">
+        {{ carModel.status || 'N/A' }}
+      </span>
+      <input
+        *ngIf="isEditing(carModel)"
+        [(ngModel)]="editingCarModel.status"
+        class="edit-input"
+      />
+    </div>
+  </div>
+
+  <div class="actions">
+    <button *ngIf="!isEditing(carModel)" (click)="enableEdit(carModel)" class="btn edit-btn">
+      Edit
+    </button>
+    <button *ngIf="isEditing(carModel)" (click)="saveCarModel()" class="btn save-btn">
+      Save
+    </button>
+    <button *ngIf="isEditing(carModel)" (click)="cancelEdit()" class="btn cancel-btn">
+      Cancel
+    </button>
+    <button *ngIf="!isEditing(carModel)" (click)="deleteCarModel(carModel.modelId)" class="btn delete-btn">
+      Delete
+    </button>
+  </div>
+</div>
+</div>

@@ -1,0 +1,57 @@
+.nav-items {
+  padding-top: 40px;
+
+  .nav-item {
+    padding: 25px 50px;
+    cursor: pointer;
+    position: relative;
+
+    @media only screen and (max-width: 1300px) {
+      padding: 25px 40px;
+    }
+
+    &:hover {
+      background-color: rgb(1, 38, 69);
+    }
+
+    fa-icon {
+      margin-right: 20px;
+      font-size: 22px;
+    }
+
+    span {
+      display: inline;
+
+      @media only screen and (max-width: 1300px) {
+        display: none;
+      }
+    }
+
+    a {
+      text-decoration: none; /* Remove underline */
+      color: inherit; /* Inherit text color */
+      align-items: center;
+      width: 100%;
+      padding: 5px 0; /* Ensure the entire area is clickable */
+
+      &:hover {
+        background-color: rgb(1, 38, 69); /* Hover color */
+        color: white; /* Change text color on hover */
+      }
+    }
+
+    &.active {
+      background-color: rgb(1, 38, 69); /* Active route color */
+      color: white; /* Active text color */
+      
+      a {
+        color: white; /* Keep the color of the text white when active */
+      }
+
+      &:hover {
+        background-color: rgb(1, 38, 69); /* Keep the active hover color consistent */
+        color: white;
+      }
+    }
+  }
+}

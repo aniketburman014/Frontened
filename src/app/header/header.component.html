@@ -1,0 +1,9 @@
+<div class="header">
+  <div class="logo">{{ getRole() }}</div>
+  <div class="user">
+    <div class="user-name">{{ formatName(name) }}</div>
+    <div class="user-image">{{ getUserInitial(name) }}</div>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+  
+</div>

@@ -1,0 +1,76 @@
+<div class="outer">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-6 col-lg-4">
+                <div class="panel border bg-white shadow rounded">
+                    <div class="panel-heading text-center py-3 bg-primary text-white rounded-top">
+                        <h3 class="font-weight-bold">Sign Up</h3>
+                    </div>
+                    <div class="panel-body p-4">
+                        <!-- Attach the (ngSubmit) directive to the form -->
+                        <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="fa fa-user"></i></span>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        placeholder="Full Name" 
+                                        required 
+                                        name="username"
+                                        [(ngModel)]="_user.Username">
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="fa fa-envelope"></i></span>
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        placeholder="Email" 
+                                        required 
+                                        name="email"
+                                        [(ngModel)]="_user.Email">
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="fa fa-lock"></i></span>
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        placeholder="Password" 
+                                        required 
+                                        name="password"
+                                        [(ngModel)]="_user.PasswordHash">
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="fas fa-portrait"></i></span>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        placeholder="Role" 
+                                        required 
+                                        name="role"
+                                        [(ngModel)]="_user.Role">
+                                </div>
+                            </div>
+                            
+                            <!-- Call onSubmit on form submission -->
+                            <button 
+                                type="submit" 
+                                class="btn btn-primary btn-block mt-4 w-100">
+                                Sign Up
+                            </button>
+                            <div class="text-center pt-4 text-muted">
+                                Already have an account? <a id="login" routerLink="/login">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

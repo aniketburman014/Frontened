@@ -1,0 +1,41 @@
+<div class="main">
+    <div class="search-container">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Search "
+        class="search-input"
+      />
+      <button (click)="searchUsers()" class="search-button">Search</button>
+    </div>
+  
+    <table class="user-table" *ngIf="users.length > 0; else noUsers">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td class="actions">
+            <button (click)="editUser(user)" class="action-button edit-button">Update</button>
+            <button (click)="deleteUser(user.userId)" class="action-button delete-button">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Display "No records found" message if there are no users -->
+    <ng-template #noUsers>
+      <p>No records found</p>
+    </ng-template>
+  </div>
+  

@@ -1,0 +1,125 @@
+<div class="main">
+    <div class="top-bar">
+      <div class="top-bar-1">
+        <input
+          type="text"
+          [(ngModel)]="searchQuery"
+          placeholder="Search suppliers"
+          class="search-input"
+        />
+        <button (click)="searchSuppliers()" class="btn search-btn">Search</button>
+      </div>
+      <button (click)="addNewSupplier()" class="btn add-btn">Add New Supplier</button>
+    </div>
+    <div *ngIf="suppliers.length === 0">No Results Found</div>
+    <div *ngFor="let supplier of suppliers" class="supplier-container">
+      <div class="details-section">
+        <!-- Supplier Name -->
+        <div class="detail-row">
+          <span class="label">Supplier Name:</span>
+          <span class="value" *ngIf="!isEditing(supplier)">
+            {{ supplier.name || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(supplier)"
+            [(ngModel)]="editingSupplier.name"
+            class="edit-input"
+          />
+        </div>
+        <!-- Contact Details -->
+        <div class="detail-row">
+          <span class="label">Contact Details:</span>
+          <span class="value" *ngIf="!isEditing(supplier)">
+            {{ supplier.contactDetails || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(supplier)"
+            [(ngModel)]="editingSupplier.contactDetails"
+            class="edit-input"
+          />
+        </div>
+        <!-- Material Type -->
+        <div class="detail-row">
+          <span class="label">Material Type:</span>
+          <span class="value" *ngIf="!isEditing(supplier)">
+            {{ supplier.materialType || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(supplier)"
+            [(ngModel)]="editingSupplier.materialType"
+            class="edit-input"
+          />
+        </div>
+        <!-- Delivery Time -->
+        <div class="detail-row">
+          <span class="label">Delivery Time (Days):</span>
+          <span class="value" *ngIf="!isEditing(supplier)">
+            {{ supplier.deliveryTime || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(supplier)"
+            [(ngModel)]="editingSupplier.deliveryTime"
+            class="edit-input"
+            type="number"
+          />
+        </div>
+        <!-- Pricing -->
+        <div class="detail-row">
+          <span class="label">Pricing:</span>
+          <span class="value" *ngIf="!isEditing(supplier)">
+            ${{ supplier.pricing || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(supplier)"
+            [(ngModel)]="editingSupplier.pricing"
+            class="edit-input"
+            type="number"
+          />
+        </div>
+        <!-- Status -->
+        <div class="detail-row">
+          <span class="label">Status:</span>
+          <span class="value" *ngIf="!isEditing(supplier)">
+            {{ supplier.status || 'N/A' }}
+          </span>
+          <input
+            *ngIf="isEditing(supplier)"
+            [(ngModel)]="editingSupplier.status"
+            class="edit-input"
+          />
+        </div>
+      </div>
+  
+      <div class="actions">
+        <button
+          *ngIf="!isEditing(supplier)"
+          (click)="enableEdit(supplier)"
+          class="btn edit-btn"
+        >
+          Edit
+        </button>
+        <button
+          *ngIf="isEditing(supplier)"
+          (click)="saveSupplier()"
+          class="btn save-btn"
+        >
+          Save
+        </button>
+        <button
+          *ngIf="isEditing(supplier)"
+          (click)="cancelEdit()"
+          class="btn cancel-btn"
+        >
+          Cancel
+        </button>
+        <button
+          *ngIf="!isEditing(supplier)"
+          (click)="deleteSupplier(supplier.supplierId)"
+          class="btn delete-btn"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  
